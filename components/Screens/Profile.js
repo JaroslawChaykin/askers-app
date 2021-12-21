@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Image, FlatList } from 'react-native';
+import { StyleSheet, Text, View, Image, FlatList, ScrollView } from 'react-native';
 import TitleOfScreen from '../TitleOfScreen';
 import SurveyPreview from '../SurveyPreview';
 
@@ -20,7 +20,7 @@ export default function Profile({navigation}) {
   }
 
   return (
-    <View style={styles.container}>
+    <View showsVerticalScrollIndicator={false} style={styles.container}>
       <TitleOfScreen text={'Бычин Арсений'} size={28}/>
       <View style={styles.infoAboutStudent}>
         <View style={styles.avatar}>

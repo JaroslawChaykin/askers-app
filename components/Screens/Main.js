@@ -15,7 +15,7 @@ export default function Main() {
   return (
     <View style={styles.container}>
       <TitleOfScreen text={'Опросы вашей образовательной программы'} size={28}/>
-      <FlatList data={ask} renderItem={({item})=> (
+      <FlatList data={ask} renderItem={({item}) => (
         <FullSurveyPreview item={item}/>
       )} />
     </View>

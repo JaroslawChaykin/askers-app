@@ -4,6 +4,9 @@ import { StyleSheet, Text, View, TextInput } from 'react-native';
 
 export default function TitleOfScreen(props) {
   const styles = StyleSheet.create({
+    container: {
+      marginTop: 10
+    },
     text: {
       fontSize: props.size,
       fontWeight: 'bold'
