@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, TextInput, ScrollView, TouchableOpacity, Text, FlatList } from 'react-native';
+import { StyleSheet, View, TextInput, ScrollView, TouchableOpacity, Text } from 'react-native';
 import TitleOfScreen from '../TitleOfScreen';
 import AskBox from '../AskBox';
-import FullSurveyPreview from '../FullSurveyPreview';
 
 export default function CreateAsk() {
 
@@ -33,9 +32,18 @@ export default function CreateAsk() {
         <View style={styles.inputContainer}>
           <TextInput style={styles.input} placeholder={'Название опроса'} />
         </View>
-        <FlatList data={countAsk} renderItem={({item}) => (
-          <AskBox item={item} deleteAsk={deleteAsk}/>
-        )} />
+        {/*<FlatList data={countAsk} renderItem={({item}) => (*/}
+        {/*  <AskBox item={item} deleteAsk={deleteAsk}/>*/}
+        {/*)} />*/}
+        <View >
+          {
+            countAsk.map(item => {
+              return (
+                <AskBox item={item} key={item.key} deleteAsk={deleteAsk}/>
+              )
+            })
+          }
+        </View>
         <View style={styles.buttonBox}>
           <TouchableOpacity style={styles.button} onPress={addAsk}>
             <Text style={styles.buttonText}>Добавить вопрос</Text>
