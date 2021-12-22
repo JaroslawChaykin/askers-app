@@ -5,23 +5,23 @@ import { AntDesign } from '@expo/vector-icons';
 
 export default function Search() {
 
-  const nameOfProfile= [
-    'Архитектура',
-    'Биологические науки',
-    'Востоковедение',
-    'Изобразительное искусство',
-    'Информатика',
-    'Информационная безопастность',
-    'Искусствознание',
-    'История и археология',
-    'Культуроведение',
-    'Математика',
-    'Политические науки',
-    'Психологические науки',
-    'Социология',
-    'СМИ',
-    'Сценические искусства',
-    'Физика',
+  let nameOfProfile = [
+    {name: 'Архитектура', key: 1},
+    {name: 'Биологические науки', key: 2},
+    {name: 'Востоковедение', key: 3},
+    {name: 'Изобразительное искусство', key: 4},
+    {name: 'Информатика', key: 5},
+    {name: 'Информационная безопастность', key: 6},
+    {name: 'Искусствознание', key: 7},
+    {name: 'История и археология', key: 8},
+    {name: 'Культуроведение', key: 9},
+    {name: 'Математика', key: 10},
+    {name: 'Политические науки', key: 11},
+    {name: 'Психологические науки', key: 12},
+    {name: 'Социология', key: 13},
+    {name: 'СМИ', key: 14},
+    {name: 'Сценические искусства', key: 15},
+    {name: 'Физика', key: 16},
   ]
 
   return (
@@ -35,8 +35,8 @@ export default function Search() {
         {
           nameOfProfile.map(item => {
             return (
-              <TouchableOpacity style={styles.profileButton}>
-                <Text style={styles.profileButtonText}>{item}</Text>
+              <TouchableOpacity style={styles.profileButton} key={item.key}>
+                <Text style={styles.profileButtonText}>{item.name}</Text>
               </TouchableOpacity>
             )
           })
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginTop: 10,
     height: 76,
-    paddingHorizontal: 20
+    paddingHorizontal: 10
   },
   profileButtonText: {
     color: '#fff',
