@@ -38,12 +38,6 @@ export default function AskBox(props, deleteAsk) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   askContainer: {
     marginTop: 35
   },
@@ -51,9 +45,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center'
-  },
-  deleteBtnBox: {
-    flexDirection: 'row',
   },
   deleteBtn: {
     paddingHorizontal: 10,

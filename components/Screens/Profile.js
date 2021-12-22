@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Image, FlatList, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Image, FlatList } from 'react-native';
 import TitleOfScreen from '../TitleOfScreen';
 import SurveyPreview from '../SurveyPreview';
 
-export default function Profile({navigation}) {
+export default function Profile() {
 
   const [ask, setAsk] = useState([
     {name: 'Бычин Арсений', course: 3, program: 'Дизайн', title: 'Приложение для проведения опросов', description: 'Мы делаем приложение для проведения опросов. Помоги нам, уделив всего 5 минут своего времени!', key: 1},
@@ -53,16 +53,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     paddingHorizontal: 25
-  },
-  button: {
-    paddingVertical: 18,
-    paddingHorizontal: 28,
-    backgroundColor: '#c41919',
-    margin: 14,
-    borderRadius: 10,
-  },
-  buttonText: {
-    color: '#fff'
   },
   infoAboutStudent: {
     flexDirection: 'row',

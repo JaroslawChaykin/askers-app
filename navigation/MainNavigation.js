@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, Image, TouchableOpacity, View} from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { AntDesign } from '@expo/vector-icons';
 import Main from '../components/Screens/Main';
@@ -78,10 +78,6 @@ export default function MainNavigation() {
 }
 
 const styles = StyleSheet.create({
-  image: {
-    height: 30,
-    width: 30
-  },
   button: {
     width: '50%',
     alignItems: 'center',

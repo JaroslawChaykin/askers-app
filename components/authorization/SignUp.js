@@ -21,10 +21,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  top: {
-    marginTop: 50,
-    flexDirection: 'row',
-  },
   input: {
     borderWidth: 2,
     borderColor: '#1F69FF',

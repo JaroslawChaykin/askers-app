@@ -32,9 +32,6 @@ export default function CreateAsk() {
         <View style={styles.inputContainer}>
           <TextInput style={styles.input} placeholder={'Название опроса'} />
         </View>
-        {/*<FlatList data={countAsk} renderItem={({item}) => (*/}
-        {/*  <AskBox item={item} deleteAsk={deleteAsk}/>*/}
-        {/*)} />*/}
         <View >
           {
             countAsk.map(item => {

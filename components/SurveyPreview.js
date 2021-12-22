@@ -1,9 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import TitleOfScreen from './TitleOfScreen';
 
 
-export default function SurveyPreview(props) {
+export default function SurveyPreview() {
   return (
     <View>
       <View style={styles.container}>

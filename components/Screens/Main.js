@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, FlatList } from 'react-native';
+import { StyleSheet, View, FlatList } from 'react-native';
 import TitleOfScreen from '../TitleOfScreen';
 import FullSurveyPreview from '../FullSurveyPreview';
 
