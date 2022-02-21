@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-
+import themes from '../constants/_theme.constants';
 
 export default function TitleOfScreen(props) {
   const styles = StyleSheet.create({
@@ -9,7 +9,8 @@ export default function TitleOfScreen(props) {
     },
     text: {
       fontSize: props.size,
-      fontWeight: 'bold'
+      fontWeight: 'bold',
+      color: themes.palette.black
     }
   });
   return (

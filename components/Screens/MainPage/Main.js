@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, FlatList } from 'react-native';
-import TitleOfScreen from '../TitleOfScreen';
-import FullSurveyPreview from '../FullSurveyPreview';
+import TitleOfScreen from '../../TitleOfScreen';
+import FullSurveyPreview from '../../FullSurveyPreview';
+import { gStyles } from '../../../assets/style/gStyles';
 
 
 export default function Main() {
@@ -13,7 +14,7 @@ export default function Main() {
   ])
 
   return (
-    <View style={styles.container}>
+    <View style={gStyles.container}>
       <TitleOfScreen text={'Опросы вашей образовательной программы'} size={28}/>
       <FlatList data={ask} renderItem={({item}) => (
         <FullSurveyPreview item={item}/>
@@ -23,9 +24,5 @@ export default function Main() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    paddingHorizontal: 25
-  }
+
 });

@@ -3,9 +3,9 @@ import { StatusBar, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import MainNavigation from './navigation/MainNavigation';
-import Authorization from './components/authorization/Authorization';
-import SignIn from './components/authorization/SignIn';
-import SignUp from './components/authorization/SignUp';
+import Authorization from './components/Screens/AuthPage/Authorization';
+import SignIn from './components/Screens/AuthPage/SignIn';
+import SignUp from './components/Screens/AuthPage/SignUp';
 
 const Stack = createStackNavigator();
 

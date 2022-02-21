@@ -1,7 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, TextInput, View, TouchableOpacity, ScrollView } from 'react-native';
-import TitleOfScreen from '../TitleOfScreen';
+import TitleOfScreen from '../../TitleOfScreen';
 import { AntDesign } from '@expo/vector-icons';
+import { gStyles } from '../../../assets/style/gStyles';
 
 export default function Search() {
 
@@ -25,7 +26,7 @@ export default function Search() {
   ]
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={gStyles.container}>
       <TitleOfScreen text={'Поиск по ФИО или ОП'} size={28}/>
       <View style={styles.inputContainer}>
         <TextInput style={styles.input} placeholder={'ФИО, образовательная программа'} />
@@ -47,11 +48,6 @@ export default function Search() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    paddingHorizontal: 25
-  },
   inputContainer: {
     marginTop: 20,
   },

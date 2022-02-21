@@ -1,9 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { gStyles } from '../../../assets/style/gStyles';
 
 export  default function Authorization({navigation}) {
   return (
-    <View style={styles.container}>
+    <View style={gStyles.containerCenter}>
       <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('SignUp')}>
         <Text style={styles.buttonText}>Зарегестрироваться</Text>
       </TouchableOpacity>
@@ -15,12 +16,6 @@ export  default function Authorization({navigation}) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   button: {
     paddingVertical: 18,
     paddingHorizontal: 28,

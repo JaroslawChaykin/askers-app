@@ -2,11 +2,10 @@ import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { AntDesign } from '@expo/vector-icons';
-import Main from '../components/Screens/Main';
-import Search from '../components/Screens/Search';
-import Profile from '../components/Screens/Profile';
-import CreateAsk from '../components/Screens/CreateAsk';
-
+import Main from '../components/Screens/MainPage/Main';
+import Search from '../components/Screens/MainPage/Search';
+import Profile from '../components/Screens/MainPage/Profile';
+import CreateAsk from '../components/Screens/MainPage/CreateAsk';
 
 const Tab = createBottomTabNavigator();
 

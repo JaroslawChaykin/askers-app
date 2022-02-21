@@ -1,32 +1,47 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, TextInput, ScrollView, TouchableOpacity, Text } from 'react-native';
-import TitleOfScreen from '../TitleOfScreen';
-import AskBox from '../AskBox';
+import TitleOfScreen from '../../TitleOfScreen';
+import AskBox from '../../AskBox';
+import { gStyles } from '../../../assets/style/gStyles';
+import themes from '../../../constants/_theme.constants';
 
 export default function CreateAsk() {
 
-  const [countAsk, setCountAsk] = useState([])
-  let [count, setCount] = useState(1)
+  const [questions, setQuestions] = useState([
+    {name: '12421', selected: '1', key: 1},
+    {name: 'grere', selected: '3', key: 2},
+    {name: '124ef33321', selected: '1', key: 3},
+    {name: 'sss', selected: '2', key: 4},
+  ])
 
-  const addAsk = () => {
-    setCount(count + 1)
 
-    setCountAsk((list) => {
+  const changeQuestion = (newQuestion) => {
+    setQuestions(questions.map(item => {
+      if(item.key === newQuestion.key) {
+        return newQuestion
+      } else {
+        return item
+      }
+    }))
+  }
+
+  const addQuestion = () => {
+    setQuestions(() => {
       return [
-        ...list,
-        {askCount: count, key: count},
+        ...questions,
+        {key: Date.now(), name: '', selected: '1'},
       ]
     })
   }
 
-  const deleteAsk = (key) => {
-    setCountAsk((list) => {
+  const deleteQuestion = (key) => {
+    setQuestions((list) => {
       return list.filter(countAsk => countAsk.key !== key)
     })
   }
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={gStyles.container}>
       <View style={styles.pb40}>
         <TitleOfScreen text={'Название опроса'} size={28} />
         <View style={styles.inputContainer}>
@@ -34,35 +49,32 @@ export default function CreateAsk() {
         </View>
         <View >
           {
-            countAsk.map(item => {
+            questions.map((question, index) => {
               return (
-                <AskBox item={item} key={item.key} deleteAsk={deleteAsk}/>
+                <AskBox question={question} changeQuestion={changeQuestion} count={index+1} key={question.key} deleteQuestion={deleteQuestion}/>
               )
             })
           }
         </View>
         <View style={styles.buttonBox}>
-          <TouchableOpacity style={styles.button} onPress={addAsk}>
+          <TouchableOpacity style={styles.button} onPress={addQuestion}>
             <Text style={styles.buttonText}>Добавить вопрос</Text>
           </TouchableOpacity>
         </View>
       </View>
     </ScrollView>
   );
+
+
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    paddingHorizontal: 25,
-  },
   pb40: {
     paddingBottom: 150
   },
   input: {
     borderWidth: 2,
-    borderColor: '#1F69FF',
+    borderColor: themes.palette.primaryBlue,
     paddingVertical: 8,
     paddingHorizontal: 12,
     borderRadius: 5,
@@ -78,11 +90,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 28,
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: '#1F69FF',
+    borderColor: themes.palette.primaryBlue,
     marginTop: 20,
   },
   buttonText: {
     fontSize: 17,
-    color: '#000'
+    color: themes.palette.black
   }
 });

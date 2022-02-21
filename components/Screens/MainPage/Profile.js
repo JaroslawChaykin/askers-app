@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Image, FlatList } from 'react-native';
-import TitleOfScreen from '../TitleOfScreen';
-import SurveyPreview from '../SurveyPreview';
+import TitleOfScreen from '../../TitleOfScreen';
+import SurveyPreview from '../../SurveyPreview';
+import { gStyles } from '../../../assets/style/gStyles';
 
 export default function Profile() {
 
@@ -20,7 +21,7 @@ export default function Profile() {
   }
 
   return (
-    <View showsVerticalScrollIndicator={false} style={styles.container}>
+    <View showsVerticalScrollIndicator={false} style={gStyles.container}>
       <TitleOfScreen text={'Бычин Арсений'} size={28}/>
       <View style={styles.infoAboutStudent}>
         <View style={styles.avatar}>
@@ -36,24 +37,16 @@ export default function Profile() {
       </View>
       <View style={styles.headerAsk}>
         <TitleOfScreen text={'Мои опросы'} size={22}/>
-        <Text>Пройдено опросов: 0</Text>
+        <Text style={styles.headerAskText}>Пройдено опросов: 0</Text>
       </View>
       <FlatList data={ask} renderItem={({item})=> (
         <SurveyPreview item={item}/>
       )} />
-      {/*<TouchableOpacity style={styles.button} onPress={  () => navigation.navigate('Authorization')}>*/}
-      {/*  <Text style={styles.buttonText}>Выйти</Text>*/}
-      {/*</TouchableOpacity>*/}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    paddingHorizontal: 25
-  },
   infoAboutStudent: {
     flexDirection: 'row',
     marginTop: 20,
@@ -87,6 +80,9 @@ const styles = StyleSheet.create({
   headerAsk: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center',
+    alignItems: 'flex-end',
+  },
+  headerAskText: {
+    marginBottom: 3
   }
 });

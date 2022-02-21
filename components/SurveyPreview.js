@@ -7,7 +7,7 @@ export default function SurveyPreview() {
   return (
     <View>
       <View style={styles.container}>
-        <TitleOfScreen  text={'Приложение для проведения опросов'} size={17} />
+        <TitleOfScreen text={'Приложение для проведения опросов'} size={17} />
         <View style={styles.previewInfo}>
           <Text>Участников: 13</Text>
           <Text>Создано: 28.09.21</Text>
