@@ -1,50 +1,57 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { StyleSheet, TextInput, TouchableOpacity, View } from 'react-native';
 import TitleOfScreen from './TitleOfScreen';
 import { AntDesign } from '@expo/vector-icons';
 import { Picker } from '@react-native-picker/picker';
 import themes from '../constants/_theme.constants';
+import Context from '../Context';
 
-export default function AskBox({question, count, deleteQuestion, changeQuestion}) {
+export default function AskBox({deleteQuestion}) {
 
-    const [ask, setAsk] = useState({name: question.name, selected: question.selected});
+    const {questions, changeQuestion} = useContext(Context);
 
     return (
+      <View>
+          {
+              questions.map((question, index) => {
+                  return (
+                    <View style={styles.askContainer} key={question.key}>
+                        <View style={styles.askHeader}>
+                            <TitleOfScreen style={styles.titleh1} text={`${index + 1} вопрос`} size={22}/>
+                            <View>
+                                <TouchableOpacity style={styles.deleteBtn} onPress={() => deleteQuestion(question.key)}>
+                                    <AntDesign name="minus" size={24} color="white"/>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
 
-      <View style={styles.askContainer}>
-          <View style={styles.askHeader}>
-              <TitleOfScreen style={styles.titleh1} text={`${count} вопрос`} size={22}/>
-              <View>
-                  <TouchableOpacity style={styles.deleteBtn} onPress={() => deleteQuestion(question.key)}>
-                      <AntDesign name="minus" size={24} color="white"/>
-                  </TouchableOpacity>
-              </View>
-          </View>
+                        <View>
+                            <View style={styles.inputContainer}>
+                                <TextInput style={styles.input}
+                                           onChange={(e) => {
+                                               changeQuestion({...question, name: e.target.value});
+                                           }}
+                                           value={question.name}
+                                           placeholder={'Название опроса'}/>
+                            </View>
+                            <View style={styles.selectAsk}>
+                                <Picker
+                                  selectedValue={question.selected}
+                                  onValueChange={(itemValue) => {
+                                      changeQuestion({...question, selected: itemValue});
+                                  }}
+                                >
+                                    <Picker.Item label={'Один вариант ответа'} value={'1'}/>
+                                    <Picker.Item label={'Два варианта ответа'} value={'2'}/>
+                                    <Picker.Item label={'Три варианта ответа'} value={'3'}/>
+                                </Picker>
+                            </View>
+                        </View>
+                    </View>
+                  )
 
-          <View>
-              <View style={styles.inputContainer}>
-                  <TextInput style={styles.input}
-                             onChange={(e) => {
-                                 setAsk({...ask, name: e.target.value});
-                                 changeQuestion({...ask, key: question.key})
-                             }}
-                             value={ask.name}
-                             placeholder={'Название опроса'}/>
-              </View>
-              <View style={styles.selectAsk}>
-                  <Picker
-                    selectedValue={ask.selected}
-                    onValueChange={(itemValue) => {
-                        setAsk({...ask, selected: itemValue});
-                        changeQuestion({...ask, key: question.key})
-                    }}
-                  >
-                      <Picker.Item label={'Один вариант ответа'} value={'1'}/>
-                      <Picker.Item label={'Два варианта ответа'} value={'2'}/>
-                      <Picker.Item label={'Три варианта ответа'} value={'3'}/>
-                  </Picker>
-              </View>
-          </View>
+              })
+          }
       </View>
     );
 }
