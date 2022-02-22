@@ -6,7 +6,8 @@ const themes = {
         gray: '#DFDFDF',
         darkGray: '#ADADAD',
         danger: '#FC5555',
-        black: '#000'
+        black: '#000',
+        white: '#fff'
     },
 }
 export default themes

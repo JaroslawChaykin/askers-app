@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Image, FlatList } from 'react-native';
 import TitleOfScreen from '../../TitleOfScreen';
 import SurveyPreview from '../../SurveyPreview';
 import { gStyles } from '../../../assets/style/gStyles';
+import themes from '../../../constants/_theme.constants';
 
 export default function Profile() {
 
@@ -55,7 +56,7 @@ const styles = StyleSheet.create({
   avatar: {
     width: 100,
     height: 100,
-    backgroundColor: '#1F69FF',
+    backgroundColor: themes.palette.primaryBlue,
     borderRadius: 10,
     marginRight: 10,
     overflow: 'hidden',
@@ -66,7 +67,7 @@ const styles = StyleSheet.create({
   avatarInitials: {
     fontSize: 36,
     fontWeight: 'bold',
-    color: '#fff'
+    color: themes.palette.white
   },
   avatarImage: {
     width: '100%',

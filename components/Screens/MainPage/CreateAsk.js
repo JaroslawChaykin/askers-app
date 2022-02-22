@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import TitleOfScreen from '../../TitleOfScreen';
 import AskBox from '../../AskBox';
@@ -14,9 +14,6 @@ export default function CreateAsk() {
         {name: '124ef33321', selected: '1', key: 3},
         {name: 'sss', selected: '2', key: 4},
     ]);
-
-    console.log(questions);
-
 
     const changeQuestion = (newQuestion) => {
         setQuestions(questions.map(item => newQuestion.key === item.key ? newQuestion : item));
@@ -36,8 +33,6 @@ export default function CreateAsk() {
             return list.filter(countAsk => countAsk.key !== key);
         });
     };
-
-
 
     return (
       <Context.Provider value={{questions, changeQuestion}}>

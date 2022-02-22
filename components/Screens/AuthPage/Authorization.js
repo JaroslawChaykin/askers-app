@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { gStyles } from '../../../assets/style/gStyles';
+import themes from '../../../constants/_theme.constants';
 
 export  default function Authorization({navigation}) {
   return (
@@ -19,21 +20,21 @@ const styles = StyleSheet.create({
   button: {
     paddingVertical: 18,
     paddingHorizontal: 28,
-    backgroundColor: '#1F69FF',
+    backgroundColor: themes.palette.primaryBlue,
     margin: 14,
     borderRadius: 10,
   },
   button2: {
     backgroundColor: null,
     borderWidth: 1,
-    borderColor: '#1F69FF'
+    borderColor: themes.palette.primaryBlue
   },
   buttonText: {
-    color: '#fff',
+    color: themes.palette.white,
     fontSize: 17
   },
   buttonText2: {
-    color: '#000',
+    color: themes.palette.black,
     fontSize: 17
   }
 });

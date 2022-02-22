@@ -1,20 +1,21 @@
 import { StyleSheet } from 'react-native';
+import themes from '../../constants/_theme.constants';
 
 export const gStyles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: themes.palette.white,
     paddingHorizontal: 25
   },
   containerCenter: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: themes.palette.white,
     alignItems: 'center',
     justifyContent: 'center',
   },
   inputAuth: {
     borderWidth: 2,
-    borderColor: '#1F69FF',
+    borderColor: themes.palette.primaryBlue,
     width: 270,
     paddingVertical: 12,
     paddingHorizontal: 8,
@@ -24,7 +25,7 @@ export const gStyles = StyleSheet.create({
   buttonAuth: {
     paddingVertical: 18,
     paddingHorizontal: 28,
-    backgroundColor: '#1F69FF',
+    backgroundColor: themes.palette.primaryBlue,
     margin: 14,
     borderRadius: 10,
   },

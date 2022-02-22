@@ -3,6 +3,7 @@ import { StyleSheet, Text, TextInput, View, TouchableOpacity, ScrollView } from 
 import TitleOfScreen from '../../TitleOfScreen';
 import { AntDesign } from '@expo/vector-icons';
 import { gStyles } from '../../../assets/style/gStyles';
+import themes from '../../../constants/_theme.constants';
 
 export default function Search() {
 
@@ -53,7 +54,7 @@ const styles = StyleSheet.create({
   },
   input: {
     borderWidth: 2,
-    borderColor: '#1F69FF',
+    borderColor: themes.palette.primaryBlue,
     paddingVertical: 8,
     paddingLeft: 38,
     borderRadius: 5,
@@ -69,7 +70,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between'
   },
   profileButton: {
-    backgroundColor: '#1F69FF',
+    backgroundColor: themes.palette.primaryBlue,
     paddingVertical: 15,
     borderRadius: 10,
     width: '48%',
@@ -80,7 +81,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10
   },
   profileButtonText: {
-    color: '#fff',
+    color: themes.palette.white,
     textAlign: 'center'
   }
 });

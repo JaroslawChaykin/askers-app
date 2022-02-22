@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import TitleOfScreen from './TitleOfScreen';
+import themes from '../constants/_theme.constants';
 
 
 export default function SurveyPreview() {
@@ -28,7 +29,7 @@ export default function SurveyPreview() {
 const styles = StyleSheet.create({
   container: {
     borderWidth: 2,
-    borderColor: '#1F69FF',
+    borderColor: themes.palette.primaryBlue,
     borderRadius: 10,
     maxHeight: 350,
     marginTop: 20,
@@ -49,18 +50,18 @@ const styles = StyleSheet.create({
   },
   buttonAround: {
     borderWidth: 1,
-    borderColor: '#1F69FF',
+    borderColor: themes.palette.primaryBlue,
     paddingVertical: 14,
     paddingHorizontal: 28,
     borderRadius: 10,
   },
   buttonFill: {
-    backgroundColor: '#1F69FF',
+    backgroundColor: themes.palette.primaryBlue,
     paddingVertical: 14,
     paddingHorizontal: 28,
     borderRadius: 10,
   },
   buttonFillText: {
-    color: '#fff'
+    color: themes.palette.white
   }
 });

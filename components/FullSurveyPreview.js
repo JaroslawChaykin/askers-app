@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import TitleOfScreen from './TitleOfScreen';
 import { AntDesign } from '@expo/vector-icons';
+import themes from '../constants/_theme.constants';
 
 
 export default function FullSurveyPreview(props) {
@@ -43,7 +44,7 @@ export default function FullSurveyPreview(props) {
 const styles = StyleSheet.create({
   container: {
     borderWidth: 2,
-    borderColor: '#1F69FF',
+    borderColor: themes.palette.primaryBlue,
     borderRadius: 10,
     flexDirection: 'row',
     maxHeight: 350,
@@ -57,7 +58,7 @@ const styles = StyleSheet.create({
     width: '61%',
     padding: 10,
     borderLeftWidth: 2,
-    borderLeftColor: '#1F69FF',
+    borderLeftColor: themes.palette.primaryBlue,
   },
   text: {
     fontSize: 13,
@@ -69,7 +70,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderBottomWidth: 2,
-    borderBottomColor: '#1F69FF',
+    borderBottomColor: themes.palette.primaryBlue,
   },
   image: {
     width: '100%',
@@ -88,13 +89,13 @@ const styles = StyleSheet.create({
   },
   buttonAround: {
     borderWidth: 1,
-    borderColor: '#1F69FF',
+    borderColor: themes.palette.primaryBlue,
     paddingVertical: 14,
     paddingHorizontal: 28,
     borderRadius: 10,
   },
   iconAround: {
-    backgroundColor: '#1F69FF',
+    backgroundColor: themes.palette.primaryBlue,
     padding: 3,
     borderRadius: 120,
     marginRight: 5
