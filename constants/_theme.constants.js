@@ -9,5 +9,18 @@ const themes = {
         black: '#000',
         white: '#fff'
     },
+    fontSize: {
+        header1: 32,
+        header2: 28,
+        header3: 22,
+        sebHeader: 17,
+        mainText: 13
+    },
+    fontFamily: {
+        bold: 'inter-bold',
+        regular: 'inter-regular',
+        medium: 'inter-medium',
+        semiBold: 'inter-semibold',
+    }
 }
 export default themes

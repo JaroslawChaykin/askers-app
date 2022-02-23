@@ -43,27 +43,30 @@ const userTabOptions = Object.assign({
 }, tabOptions);
 
 const tabNavigatorOptions = {
-    headerShown: false,
+    tabBarActiveTintColor: '',
     tabBarStyle: {
         height: 76,
         elevation: 0,
         shadowOpacity: 0,
+        paddingHorizontal: 25,
         borderTopWidth: 2,
         borderTopColor: themes.palette.secondaryBlue,
-        paddingHorizontal: 25,
     },
 };
 
 export default function MainNavigation() {
     return (
-      <Tab.Navigator screenOptions={tabNavigatorOptions}>
-          <Tab.Screen name={'CreateAsk'}
+      <Tab.Navigator initialRouteName="Профиль" screenOptions={tabNavigatorOptions}>
+          <Tab.Screen name={'Опрос'}
                       component={CreateAsk}
                       options={({navigation}) => ({
                           tabBarShowLabel: false,
                           tabBarHideOnKeyboard: true,
+                          tabBarActiveTintColor: 'red',
                           tabBarButton: () => (
-                            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('CreateAsk')}>
+                            <TouchableOpacity style={styles.button} onPress={() => {
+                                navigation.navigate('Опрос');
+                            }}>
                                 <View style={styles.innerButton}>
                                     <AntDesign name="plus" size={32} color="white"/>
                                     <Text style={styles.buttonText}>Создать опрос</Text>
@@ -71,9 +74,9 @@ export default function MainNavigation() {
                             </TouchableOpacity>
                           ),
                       })}/>
-          <Tab.Screen name={'Main'} component={Main} options={mainTabOptions}/>
-          <Tab.Screen name={'Search'} component={Search} options={searchTabOptions}/>
-          <Tab.Screen name={'Profile'} component={Profile} options={userTabOptions}/>
+          <Tab.Screen name={'Главная'} component={Main} options={mainTabOptions}/>
+          <Tab.Screen name={'Поиск'} component={Search} options={searchTabOptions}/>
+          <Tab.Screen name={'Профиль'} component={Profile} options={userTabOptions}/>
       </Tab.Navigator>
     );
 }
@@ -95,7 +98,7 @@ const styles = StyleSheet.create({
     buttonText: {
         fontSize: 15,
         fontWeight: '700',
-        color: '#fff',
+        color: themes.palette.white,
         marginLeft: 10
     },
     iconAround: {
@@ -103,5 +106,8 @@ const styles = StyleSheet.create({
         padding: 9,
         borderRadius: 120,
         marginRight: -25
+    },
+    active: {
+        backgroundColor: 'red'
     }
 });

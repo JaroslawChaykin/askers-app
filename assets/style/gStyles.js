@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
 import themes from '../../constants/_theme.constants';
 
+
 export const gStyles = StyleSheet.create({
   container: {
     flex: 1,
@@ -13,21 +14,21 @@ export const gStyles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  inputAuth: {
-    borderWidth: 2,
-    borderColor: themes.palette.primaryBlue,
+  input: {
     width: 270,
     paddingVertical: 12,
-    paddingHorizontal: 8,
-    margin: 6,
-    borderRadius: 5,
+    paddingHorizontal: 18,
+    borderRadius: 100,
+    backgroundColor: themes.palette.gray,
+    fontFamily: themes.fontFamily.medium
   },
-  buttonAuth: {
+  button: {
     paddingVertical: 18,
     paddingHorizontal: 28,
-    backgroundColor: themes.palette.primaryBlue,
-    margin: 14,
     borderRadius: 10,
+    backgroundColor: themes.palette.primaryBlue,
+    fontFamily: themes.fontFamily.medium,
+    color: themes.palette.white
   },
   textColorWhite: {
     color: 'white',
