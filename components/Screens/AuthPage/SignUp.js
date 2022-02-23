@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, TextInput, View } from 'react-native';
 import { gStyles } from '../../../assets/style/gStyles';
 import themes from '../../../constants/_theme.constants';
 import AskButton from '../../UI/AskButton';
