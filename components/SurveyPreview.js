@@ -1,41 +1,51 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import TitleOfScreen from './TitleOfScreen';
 import themes from '../constants/_theme.constants';
+import Typography from './UI/Typography';
+import { gStyles } from '../assets/style/gStyles';
+import AskButton from './UI/AskButton';
 
 
 export default function SurveyPreview() {
   return (
     <View>
       <View style={styles.container}>
-        <TitleOfScreen text={'Приложение для проведения опросов'} size={17} />
+        <Typography style={styles.title}>Приложение для проведения опросов</Typography>
         <View style={styles.previewInfo}>
-          <Text>Участников: 13</Text>
-          <Text>Создано: 28.09.21</Text>
+          <Typography style={styles.text}>Время создания: 28.09.21</Typography>
+          <Typography style={styles.text}>Участников: 10</Typography>
         </View>
       </View>
       <View style={styles.buttons}>
-        <TouchableOpacity style={styles.buttonAround}>
-          <Text>Редактировать</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonFill}>
-          <Text style={styles.buttonFillText}>Результаты</Text>
-        </TouchableOpacity>
+        <AskButton
+          style={styles.button}
+          text={'Результаты'}
+        />
+        <AskButton
+          style={{...styles.button, ...styles.buttonUnFill}}
+          text={'Редактировать'}
+        />
       </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  text: {
+    fontSize: themes.fontSize.mainText
+  },
+  title: {
+    ...gStyles.title,
+    fontSize: 17
+  },
   container: {
-    borderWidth: 2,
-    borderColor: themes.palette.primaryBlue,
-    borderRadius: 10,
-    maxHeight: 350,
+    backgroundColor: themes.palette.white,
+    borderRadius: 25,
     marginTop: 20,
-    overflow: 'hidden',
-    paddingVertical: 10,
-    paddingHorizontal: 15
+    paddingVertical: 20,
+    paddingHorizontal: 20,
+    elevation: 3,
+    marginHorizontal: 20,
   },
   previewInfo: {
     flexDirection: 'row',
@@ -46,20 +56,16 @@ const styles = StyleSheet.create({
   buttons: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: 20
+    marginTop: 10,
+    marginHorizontal: 20
   },
-  buttonAround: {
-    borderWidth: 1,
-    borderColor: themes.palette.primaryBlue,
+  button: {
+    ...gStyles.button,
     paddingVertical: 14,
-    paddingHorizontal: 28,
-    borderRadius: 10,
   },
-  buttonFill: {
-    backgroundColor: themes.palette.primaryBlue,
-    paddingVertical: 14,
-    paddingHorizontal: 28,
-    borderRadius: 10,
+  buttonUnFill: {
+    backgroundColor: 'transparent',
+    color: themes.palette.primaryBlue
   },
   buttonFillText: {
     color: themes.palette.white

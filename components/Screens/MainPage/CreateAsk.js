@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import TitleOfScreen from '../../TitleOfScreen';
+import { ScrollView, StyleSheet, TextInput, View } from 'react-native';
 import AskBox from '../../AskBox';
 import { gStyles } from '../../../assets/style/gStyles';
 import themes from '../../../constants/_theme.constants';
 import Context from '../../../Context';
+import AskButton from '../../UI/AskButton';
+import Typography from '../../UI/Typography';
 
 export default function CreateAsk() {
 
@@ -36,19 +37,17 @@ export default function CreateAsk() {
 
     return (
       <Context.Provider value={{questions, changeQuestion}}>
-          <ScrollView style={gStyles.container}>
-              <View style={styles.pb40}>
-                  <TitleOfScreen text={'Название опроса'} size={28}/>
-                  <View style={styles.inputContainer}>
-                      <TextInput style={styles.input} placeholder={'Название опроса'}/>
-                  </View>
-                  <View>
-                      <AskBox deleteQuestion={deleteQuestion}/>
-                  </View>
-                  <View style={styles.buttonBox}>
-                      <TouchableOpacity style={styles.button} onPress={addQuestion}>
-                          <Text style={styles.buttonText}>Добавить вопрос</Text>
-                      </TouchableOpacity>
+          <ScrollView style={{...gStyles.container, ...gStyles.horizontalBorder}}>
+              <View>
+                  <Typography style={styles.title}>Название опроса</Typography>
+                  <TextInput style={styles.input} placeholder={'Название опроса'}/>
+                  <AskBox deleteQuestion={deleteQuestion}/>
+                  <View style={{alignItems: 'flex-start'}}>
+                      <AskButton
+                        style={styles.button}
+                        cb={addQuestion}
+                        text={'Добавить вопрос'}
+                      />
                   </View>
               </View>
           </ScrollView>
@@ -59,32 +58,18 @@ export default function CreateAsk() {
 }
 
 const styles = StyleSheet.create({
-    pb40: {
-        paddingBottom: 150
+    title: {
+        ...gStyles.title
     },
     input: {
-        borderWidth: 2,
-        borderColor: themes.palette.primaryBlue,
-        paddingVertical: 8,
-        paddingHorizontal: 12,
-        borderRadius: 5,
-    },
-    inputContainer: {
+        ...gStyles.input,
+        width: '100%',
         marginTop: 20
     },
-    buttonBox: {
-        flexDirection: 'row'
-    },
     button: {
-        paddingVertical: 18,
-        paddingHorizontal: 28,
-        borderRadius: 10,
-        borderWidth: 1,
-        borderColor: themes.palette.primaryBlue,
+        ...gStyles.button,
+        backgroundColor: 'transparent',
+        color: themes.palette.primaryBlue,
         marginTop: 20,
     },
-    buttonText: {
-        fontSize: 17,
-        color: themes.palette.black
-    }
 });

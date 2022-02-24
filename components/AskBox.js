@@ -1,10 +1,13 @@
 import React, { useContext } from 'react';
-import { StyleSheet, TextInput, TouchableOpacity, View } from 'react-native';
-import TitleOfScreen from './TitleOfScreen';
+import { StyleSheet, TextInput, View } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import { Picker } from '@react-native-picker/picker';
-import themes from '../constants/_theme.constants';
 import Context from '../Context';
+import AskButton from './UI/AskButton';
+import Typography from './UI/Typography';
+
+import themes from '../constants/_theme.constants';
+import { gStyles } from '../assets/style/gStyles';
 
 export default function AskBox({deleteQuestion}) {
 
@@ -15,25 +18,23 @@ export default function AskBox({deleteQuestion}) {
           {
               questions.map((question, index) => {
                   return (
-                    <View style={styles.askContainer} key={question.key}>
-                        <View style={styles.askHeader}>
-                            <TitleOfScreen style={styles.titleh1} text={`${index + 1} вопрос`} size={22}/>
-                            <View>
-                                <TouchableOpacity style={styles.deleteBtn} onPress={() => deleteQuestion(question.key)}>
-                                    <AntDesign name="minus" size={24} color="white"/>
-                                </TouchableOpacity>
-                            </View>
+                    <View style={styles.question} key={question.key}>
+                        <View style={styles.questionHeader}>
+                            <Typography style={styles.title}>{`${index + 1} вопрос`}</Typography>
+                            <AskButton
+                              style={styles.deleteBtn}
+                              cb={() => deleteQuestion(question.key)}
+                              text={<AntDesign name="minus" size={24} color="white"/>}
+                            />
                         </View>
 
                         <View>
-                            <View style={styles.inputContainer}>
-                                <TextInput style={styles.input}
-                                           onChange={(e) => {
-                                               changeQuestion({...question, name: e.target.value});
-                                           }}
-                                           value={question.name}
-                                           placeholder={'Название опроса'}/>
-                            </View>
+                            <TextInput style={styles.input}
+                                       onChange={(e) => {
+                                           changeQuestion({...question, name: e.target.value});
+                                       }}
+                                       value={question.name}
+                                       placeholder={'Ваш вопрос'}/>
                             <View style={styles.selectAsk}>
                                 <Picker
                                   selectedValue={question.selected}
@@ -48,7 +49,7 @@ export default function AskBox({deleteQuestion}) {
                             </View>
                         </View>
                     </View>
-                  )
+                  );
 
               })
           }
@@ -57,36 +58,34 @@ export default function AskBox({deleteQuestion}) {
 }
 
 const styles = StyleSheet.create({
-    askContainer: {
+    title: {
+        fontSize: themes.fontSize.header3,
+        fontFamily: themes.fontFamily.bold
+    },
+    question: {
         marginTop: 35
     },
-    askHeader: {
+    questionHeader: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'flex-end'
     },
     deleteBtn: {
         paddingHorizontal: 10,
-        lineHeight: 2,
         backgroundColor: themes.palette.danger,
-        alignItems: 'flex-end',
-        justifyContent: 'flex-end',
         borderRadius: 5
     },
     selectAsk: {
-        borderWidth: 2,
+        borderWidth: 1,
         borderColor: themes.palette.primaryBlue,
         borderRadius: 5,
-        height: 50,
+        height: 40,
         justifyContent: 'center',
         marginTop: 10,
     },
     input: {
-        borderWidth: 2,
-        borderColor: themes.palette.primaryBlue,
-        paddingVertical: 8,
-        paddingHorizontal: 12,
-        borderRadius: 5,
-        marginTop: 20
+        ...gStyles.input,
+        marginTop: 20,
+        width: '100%'
     },
 });

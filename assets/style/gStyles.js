@@ -5,8 +5,10 @@ import themes from '../../constants/_theme.constants';
 export const gStyles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: themes.palette.white,
-    paddingHorizontal: 25
+    backgroundColor: themes.palette.background,
+  },
+  horizontalBorder: {
+    marginHorizontal: 20
   },
   containerCenter: {
     flex: 1,
@@ -30,7 +32,8 @@ export const gStyles = StyleSheet.create({
     fontFamily: themes.fontFamily.medium,
     color: themes.palette.white
   },
-  textColorWhite: {
-    color: 'white',
+  title: {
+    fontSize: themes.fontSize.header2,
+    fontFamily: themes.fontFamily.bold
   }
 });
