@@ -5,7 +5,7 @@ import { AntDesign } from '@expo/vector-icons';
 import CreateAsk from '../components/Screens/MainPage/CreateAsk';
 import Main from '../components/Screens/MainPage/Main';
 import Search from '../components/Screens/MainPage/Search';
-import Profile from '../components/Screens/MainPage/Profile';
+import ProfileNavigation from './ProfileNavigation';
 import themes from '../constants/_theme.constants';
 
 
@@ -75,7 +75,7 @@ export default function MainNavigation() {
                       })}/>
           <Tab.Screen name={'Главная'} component={Main} options={mainTabOptions}/>
           <Tab.Screen name={'Поиск'} component={Search} options={searchTabOptions}/>
-          <Tab.Screen name={'Профиль'} component={Profile} options={userTabOptions}/>
+          <Tab.Screen name={'Профиль'} component={ProfileNavigation} options={userTabOptions}/>
       </Tab.Navigator>
     );
 }

@@ -6,11 +6,11 @@ import { gStyles } from '../assets/style/gStyles';
 import AskButton from './UI/AskButton';
 
 
-export default function SurveyPreview() {
+export default function SurveyPreview({navigation, item}) {
   return (
     <View>
       <View style={styles.container}>
-        <Typography style={styles.title}>Приложение для проведения опросов</Typography>
+        <Typography style={styles.title}>{item.title}</Typography>
         <View style={styles.previewInfo}>
           <Typography style={styles.text}>Время создания: 28.09.21</Typography>
           <Typography style={styles.text}>Участников: 10</Typography>
@@ -18,10 +18,12 @@ export default function SurveyPreview() {
       </View>
       <View style={styles.buttons}>
         <AskButton
+          cb={() => navigation.navigate('Results', item)}
           style={styles.button}
           text={'Результаты'}
         />
         <AskButton
+          cb={() => navigation.navigate('Опрос', item)}
           style={{...styles.button, ...styles.buttonUnFill}}
           text={'Редактировать'}
         />

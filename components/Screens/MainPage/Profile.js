@@ -4,15 +4,17 @@ import SurveyPreview from '../../SurveyPreview';
 import { gStyles } from '../../../assets/style/gStyles';
 import themes from '../../../constants/_theme.constants';
 import Typography from '../../UI/Typography';
+import AskButton from '../../UI/AskButton';
 
-export default function Profile() {
+
+export default function Profile({navigation}) {
 
     const [ask, setAsk] = useState([
         {
             name: 'Бычин Арсений',
             course: 3,
             program: 'Дизайн',
-            title: 'Приложение для проведения опросов',
+            title: 'Опросник 1',
             description: 'Мы делаем приложение для проведения опросов. Помоги нам, уделив всего 5 минут своего времени!',
             key: 1
         },
@@ -20,7 +22,7 @@ export default function Profile() {
             name: 'Чайкин Ярослав',
             course: 2,
             program: 'Дизайн и программирование',
-            title: 'Приложение для проведения опросов',
+            title: 'Опросник 2',
             description: 'Мы делаем приложение для проведения опросов. Помоги нам, уделив всего 5 минут своего времени!',
             key: 2
         },
@@ -28,7 +30,7 @@ export default function Profile() {
             name: 'Бенедикт Камбербетч',
             course: 1,
             program: 'Актер потрясающий просто крутой очень сильно',
-            title: 'Приложение для проведения опросов',
+            title: 'Опросник 3',
             description: 'Мы делаем приложение для проведения опросов. Помоги нам, уделив всего 5 минут своего времени!',
             key: 3
         },
@@ -63,7 +65,7 @@ export default function Profile() {
             showsVerticalScrollIndicator={false}
             data={ask}
             renderItem={({item}) => (
-              <SurveyPreview item={item}/>
+              <SurveyPreview item={item} navigation={navigation}/>
             )}
           />
       </View>
