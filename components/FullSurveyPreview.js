@@ -1,113 +1,67 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
-import TitleOfScreen from './TitleOfScreen';
-import { AntDesign } from '@expo/vector-icons';
+import { StyleSheet, View } from 'react-native';
+import Typography from './UI/Typography';
 import themes from '../constants/_theme.constants';
+import { gStyles } from '../assets/style/gStyles';
 
 
-export default function FullSurveyPreview(props) {
-  return (
-    <View>
-      <View style={styles.container}>
-        <View style={styles.left}>
-          <View style={styles.imageBox}>
-            <Image style={styles.image} source={require('../assets/palm.jpg')} />
+export default function FullSurveyPreview({item}) {
+    return (
+      <View style={styles.previewContainer}>
+          <View style={styles.previewHeader}>
+              <Typography style={styles.title}>{item.title}</Typography>
+              <View style={styles.previewInfo}>
+                  <Typography style={{...styles.text, ...styles.gap}}>Время опроса: 15 минут</Typography>
+                  <Typography style={styles.text}>Участников: 10</Typography>
+              </View>
           </View>
-          <View style={styles.studentInfo}>
-            <Text style={styles.studentName}>{props.item.name}</Text>
-            <Text>{props.item.course} курс</Text>
-            <Text>ОП «{props.item.program}»</Text>
+          <View style={styles.previewBody}>
+              <Typography style={styles.previewBodyText}>{item.description}</Typography>
           </View>
-        </View>
-        <View style={styles.right}>
-          <TitleOfScreen text={props.item.title} size={17}/>
-          <Text style={styles.text}>{props.item.description}</Text>
-        </View>
       </View>
-      <View>
-        <View style={styles.button}>
-          <TouchableOpacity style={styles.buttonAround}>
-            <Text style={styles.buttonText}>Пройти опрос</Text>
-          </TouchableOpacity>
-          <View style={styles.timeInfo}>
-            <View style={styles.iconAround}>
-              <AntDesign style={styles.icon} name="clockcircleo" size={24} color="white" />
-            </View>
-            <Text>5 минут</Text>
-          </View>
-        </View>
-      </View>
-    </View>
-  );
+    );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    borderWidth: 2,
-    borderColor: themes.palette.primaryBlue,
-    borderRadius: 10,
-    flexDirection: 'row',
-    maxHeight: 350,
-    marginTop: 20,
-    overflow: 'hidden'
-  },
-  left: {
-    width: '39%',
-  },
-  right: {
-    width: '61%',
-    padding: 10,
-    borderLeftWidth: 2,
-    borderLeftColor: themes.palette.primaryBlue,
-  },
-  text: {
-    fontSize: 13,
-    paddingTop: 5
-  },
-  imageBox: {
-    width: '100%',
-    height: 120,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderBottomWidth: 2,
-    borderBottomColor: themes.palette.primaryBlue,
-  },
-  image: {
-    width: '100%',
-    height: '100%',
-  },
-  studentInfo: {
-    padding: 10
-  },
-  studentName: {
-    fontWeight: '700'
-  },
-  button: {
-    flexDirection: 'row',
-    marginBottom: 10,
-    marginTop: 15,
-  },
-  buttonAround: {
-    borderWidth: 1,
-    borderColor: themes.palette.primaryBlue,
-    paddingVertical: 14,
-    paddingHorizontal: 28,
-    borderRadius: 10,
-  },
-  iconAround: {
-    backgroundColor: themes.palette.primaryBlue,
-    padding: 3,
-    borderRadius: 120,
-    marginRight: 5
-  },
-  icon: {
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  timeInfo: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginLeft: 20
-  }
+    title: {
+        ...gStyles.title,
+        fontSize: themes.fontSize.sebHeader
+    },
+    gap: {
+      paddingRight: 15
+    },
+    previewContainer: {
+        backgroundColor: themes.palette.white,
+        marginTop: 20,
+        borderRadius: 25,
+        overflow: 'hidden',
+        shadowColor: themes.palette.black,
+        shadowOffset: {
+            width: 0,
+            height: 0,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 2,
+        elevation: 3,
+        marginHorizontal: 20
+    },
+    previewHeader: {
+        padding: 20,
+
+    },
+    previewInfo: {
+        flexDirection: 'row',
+        marginTop: 5
+    },
+    previewBody: {
+        paddingVertical: 15,
+        paddingHorizontal: 11,
+        backgroundColor: themes.palette.primaryBlue,
+    },
+    previewBodyText: {
+        color: themes.palette.white
+    },
+    text: {
+        fontSize: 11,
+    }
 });

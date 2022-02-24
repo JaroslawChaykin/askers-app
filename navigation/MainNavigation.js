@@ -49,7 +49,7 @@ const tabNavigatorOptions = {
         elevation: 0,
         shadowOpacity: 0,
         paddingHorizontal: 25,
-        borderTopWidth: 2,
+        borderTopWidth: 1,
         borderTopColor: themes.palette.secondaryBlue,
     },
 };
@@ -62,7 +62,6 @@ export default function MainNavigation() {
                       options={({navigation}) => ({
                           tabBarShowLabel: false,
                           tabBarHideOnKeyboard: true,
-                          tabBarActiveTintColor: 'red',
                           tabBarButton: () => (
                             <TouchableOpacity style={styles.button} onPress={() => {
                                 navigation.navigate('Опрос');
@@ -107,7 +106,4 @@ const styles = StyleSheet.create({
         borderRadius: 120,
         marginRight: -25
     },
-    active: {
-        backgroundColor: 'red'
-    }
 });

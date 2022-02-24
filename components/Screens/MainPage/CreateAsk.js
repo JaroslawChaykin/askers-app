@@ -37,10 +37,12 @@ export default function CreateAsk() {
 
     return (
       <Context.Provider value={{questions, changeQuestion}}>
-          <ScrollView style={{...gStyles.container, ...gStyles.horizontalBorder}}>
+          <ScrollView style={gStyles.container}>
               <View>
                   <Typography style={styles.title}>Название опроса</Typography>
-                  <TextInput style={styles.input} placeholder={'Название опроса'}/>
+                  <View style={{marginHorizontal: 20}}>
+                      <TextInput style={styles.input} placeholder={'Название опроса'}/>
+                  </View>
                   <AskBox deleteQuestion={deleteQuestion}/>
                   <View style={{alignItems: 'flex-start'}}>
                       <AskButton
@@ -60,12 +62,13 @@ export default function CreateAsk() {
 const styles = StyleSheet.create({
     title: {
         ...gStyles.title,
-        marginTop: 35
+        marginTop: 22,
+        marginHorizontal: 20
     },
     input: {
         ...gStyles.input,
         width: '100%',
-        marginTop: 20
+        marginTop: 20,
     },
     button: {
         ...gStyles.button,

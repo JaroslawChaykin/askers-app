@@ -63,7 +63,8 @@ const styles = StyleSheet.create({
         fontFamily: themes.fontFamily.bold
     },
     question: {
-        marginTop: 35
+        marginTop: 35,
+        marginHorizontal: 20
     },
     questionHeader: {
         flexDirection: 'row',

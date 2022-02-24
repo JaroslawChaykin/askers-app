@@ -59,9 +59,13 @@ export default function Profile() {
               <Typography style={styles.subTitle}>Мои опросы</Typography>
               <Typography style={styles.headerAskText}>Пройдено опросов: 0</Typography>
           </View>
-          <FlatList data={ask} renderItem={({item}) => (
-            <SurveyPreview item={item}/>
-          )}/>
+          <FlatList
+            showsVerticalScrollIndicator={false}
+            data={ask}
+            renderItem={({item}) => (
+              <SurveyPreview item={item}/>
+            )}
+          />
       </View>
     );
 }
@@ -69,7 +73,7 @@ export default function Profile() {
 const styles = StyleSheet.create({
     title: {
         ...gStyles.title,
-        marginTop: 35,
+        marginTop: 22,
         marginHorizontal: 20
     },
     subTitle: {

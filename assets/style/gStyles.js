@@ -6,13 +6,14 @@ export const gStyles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: themes.palette.background,
+    borderTopColor: themes.palette.secondaryBlue
   },
   horizontalBorder: {
     marginHorizontal: 20
   },
   containerCenter: {
     flex: 1,
-    backgroundColor: themes.palette.white,
+    backgroundColor: themes.palette.background,
     alignItems: 'center',
     justifyContent: 'center',
   },
