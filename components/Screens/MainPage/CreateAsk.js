@@ -59,7 +59,8 @@ export default function CreateAsk() {
 
 const styles = StyleSheet.create({
     title: {
-        ...gStyles.title
+        ...gStyles.title,
+        marginTop: 35
     },
     input: {
         ...gStyles.input,

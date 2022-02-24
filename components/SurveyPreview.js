@@ -44,6 +44,13 @@ const styles = StyleSheet.create({
     marginTop: 20,
     paddingVertical: 20,
     paddingHorizontal: 20,
+    shadowColor: themes.palette.black,
+    shadowOffset: {
+      width: 0,
+      height: 0,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 2,
     elevation: 3,
     marginHorizontal: 20,
   },

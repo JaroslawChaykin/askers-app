@@ -4,7 +4,7 @@ import { TouchableOpacity } from 'react-native';
 
 const AskButton = ({cb, style, text}) => {
     return (
-      <TouchableOpacity onPress={cb}>
+      <TouchableOpacity style={{borderRadius: 10}} onPress={cb}>
           <Typography style={style}>{text}</Typography>
       </TouchableOpacity>
     );

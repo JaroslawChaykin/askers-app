@@ -28,6 +28,7 @@ export const gStyles = StyleSheet.create({
     paddingVertical: 18,
     paddingHorizontal: 28,
     borderRadius: 10,
+    overflow: 'hidden',
     backgroundColor: themes.palette.primaryBlue,
     fontFamily: themes.fontFamily.medium,
     color: themes.palette.white
