@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     subButton: {
         fontFamily: themes.fontFamily.bold,
         fontSize: 12,
-        color: themes.palette.primaryBlue,
+        color: themes.palette.primary,
         marginTop: 6,
         marginLeft: 18
     }

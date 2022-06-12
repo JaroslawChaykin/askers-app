@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
         margin: 14
     },
     button2: {
-        color: themes.palette.primaryBlue,
+        color: themes.palette.primary,
         backgroundColor: 'transparent',
     }
 });

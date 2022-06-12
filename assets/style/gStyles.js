@@ -6,7 +6,7 @@ export const gStyles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: themes.palette.background,
-    borderTopColor: themes.palette.secondaryBlue
+    borderTopColor: themes.palette.secondary
   },
   horizontalBorder: {
     marginHorizontal: 20
@@ -30,7 +30,7 @@ export const gStyles = StyleSheet.create({
     paddingHorizontal: 28,
     borderRadius: 10,
     overflow: 'hidden',
-    backgroundColor: themes.palette.primaryBlue,
+    backgroundColor: themes.palette.primary,
     fontFamily: themes.fontFamily.medium,
     color: themes.palette.white
   },

@@ -3,7 +3,7 @@ import { ScrollView, StyleSheet, TextInput, View } from 'react-native';
 import AskBox from '../../AskBox';
 import { gStyles } from '../../../assets/style/gStyles';
 import themes from '../../../constants/_theme.constants';
-import Context from '../../../Context';
+import FormQuizContext from '../../../contexts/FormQuizContext';
 import AskButton from '../../UI/AskButton';
 import Typography from '../../UI/Typography';
 
@@ -36,7 +36,7 @@ export default function CreateAsk() {
     };
 
     return (
-      <Context.Provider value={{questions, changeQuestion}}>
+      <FormQuizContext.Provider value={{questions, changeQuestion}}>
           <ScrollView style={gStyles.container}>
               <View>
                   <Typography style={styles.title}>Название опроса</Typography>
@@ -53,7 +53,7 @@ export default function CreateAsk() {
                   </View>
               </View>
           </ScrollView>
-      </Context.Provider>
+      </FormQuizContext.Provider>
     );
 
 
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     button: {
         ...gStyles.button,
         backgroundColor: 'transparent',
-        color: themes.palette.primaryBlue,
+        color: themes.palette.primary,
         marginTop: 20,
     },
 });

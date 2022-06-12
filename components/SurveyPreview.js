@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import themes from '../constants/_theme.constants';
 import Typography from './UI/Typography';
 import { gStyles } from '../assets/style/gStyles';
@@ -18,7 +18,7 @@ export default function SurveyPreview({navigation, item}) {
       </View>
       <View style={styles.buttons}>
         <AskButton
-          cb={() => navigation.navigate('Results', item)}
+          cb={() => navigation.navigate('Результат', item)}
           style={styles.button}
           text={'Результаты'}
         />
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
   },
   buttonUnFill: {
     backgroundColor: 'transparent',
-    color: themes.palette.primaryBlue
+    color: themes.palette.primary
   },
   buttonFillText: {
     color: themes.palette.white

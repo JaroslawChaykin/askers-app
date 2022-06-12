@@ -4,7 +4,6 @@ import SurveyPreview from '../../SurveyPreview';
 import { gStyles } from '../../../assets/style/gStyles';
 import themes from '../../../constants/_theme.constants';
 import Typography from '../../UI/Typography';
-import AskButton from '../../UI/AskButton';
 
 
 export default function Profile({navigation}) {
@@ -22,7 +21,7 @@ export default function Profile({navigation}) {
             name: 'Чайкин Ярослав',
             course: 2,
             program: 'Дизайн и программирование',
-            title: 'Опросник 2',
+            title: 'Опросник 2 Дизайн и программирование 2',
             description: 'Мы делаем приложение для проведения опросов. Помоги нам, уделив всего 5 минут своего времени!',
             key: 2
         },
@@ -91,7 +90,7 @@ const styles = StyleSheet.create({
     avatar: {
         width: 100,
         height: 100,
-        backgroundColor: themes.palette.primaryBlue,
+        backgroundColor: themes.palette.primary,
         borderRadius: 10,
         marginRight: 10,
         overflow: 'hidden',
@@ -123,6 +122,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 20
     },
     headerAskText: {
-        marginBottom: 2
+        marginBottom: 3,
+        fontSize: themes.fontSize.mainText
     }
 });

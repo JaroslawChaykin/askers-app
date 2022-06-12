@@ -1,7 +1,7 @@
 const themes = {
     palette: {
-        primaryBlue: '#1F69FF',
-        secondaryBlue: '#B7CBFF',
+        primary: '#1F69FF',
+        secondary: '#B7CBFF',
         background: '#F5F5F5',
         gray: '#DFDFDF',
         darkGray: '#ADADAD',

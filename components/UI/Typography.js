@@ -5,16 +5,15 @@ import themes from '../../constants/_theme.constants';
 
 const Typography = ({style, children}) => {
 
-    const [loaded] = useFonts({
+    const [loaded, error] = useFonts({
         'inter-bold': require('../../assets/fonts/Inter-Bold.ttf'),
         'inter-semibold': require('../../assets/fonts/Inter-SemiBold.ttf'),
         'inter-regular': require('../../assets/fonts/Inter-Regular.ttf'),
         'inter-medium': require('../../assets/fonts/Inter-Medium.ttf'),
     });
 
-    if (!loaded) {
-        return null;
-    }
+    if (!loaded) return null
+    if(error) return error
 
     return (
       <Text style={{

@@ -7,11 +7,9 @@ const Stack = createStackNavigator();
 
 export default function ProfileNavigation() {
     return (
-      <Stack.Navigator screenOptions={{
-          headerShown: false
-      }}>
-          <Stack.Screen name={'Profile'} component={Profile}/>
-          <Stack.Screen name={'Results'} component={Results}/>
+      <Stack.Navigator>
+          <Stack.Screen name={'Профиль'} component={Profile}/>
+          <Stack.Screen name={'Результат'} component={Results}/>
       </Stack.Navigator>
     );
 }

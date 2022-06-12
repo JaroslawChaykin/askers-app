@@ -1,31 +1,51 @@
-import React from 'react';
-import { StyleSheet, TextInput, View } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, TextInput, View,Text } from 'react-native';
 import { gStyles } from '../../../assets/style/gStyles';
 import AskButton from '../../UI/AskButton';
 import themes from '../../../constants/_theme.constants';
+import { useAuth } from '../../../contexts/UserContext';
 
-export default function SignUp({navigation}) {
+export default function SignIn() {
+    const [login, setLogin] = useState('');
+    const [password, setPassword] = useState('');
+
+    const {signIn, isLoading} = useAuth()
+
+    const logInUser = () => {
+        if(login && password) {
+            signIn()
+        }
+    }
+
     return (
       <View style={gStyles.containerCenter}>
           <View>
-              <TextInput style={styles.input} placeholder={'Логин'}/>
-              <TextInput style={styles.input} placeholder={'Пароль'}/>
+              <TextInput style={styles.input}
+                         value={login}
+                         onChangeText={text => setLogin(text)}
+                         editable={!isLoading}
+                         placeholder={'Логин'}/>
+              <TextInput style={styles.input}
+                         value={password}
+                         editable={!isLoading}
+                         onChangeText={text => setPassword(text)}
+                         secureTextEntry
+                         placeholder={'Пароль'}/>
               <AskButton
                 style={styles.subButton}
-                cb={() => navigation.navigate('MainNav')}
                 text={'Забыл пароль'}
               />
               <View style={{alignItems: 'center'}}>
                   <AskButton
                     style={styles.button}
-                    cb={() => navigation.navigate('MainNav')}
-                    text={'Войти'}
+                    cb={logInUser}
+                    text={isLoading ? 'Загрузка' : 'Войти'}
                   />
               </View>
           </View>
       </View>
     );
-}
+};
 
 const styles = StyleSheet.create({
     input: {
@@ -40,7 +60,7 @@ const styles = StyleSheet.create({
     subButton: {
         fontFamily: themes.fontFamily.bold,
         fontSize: 12,
-        color: themes.palette.primaryBlue,
+        color: themes.palette.primary,
         marginTop: 6,
         marginLeft: 18
     }

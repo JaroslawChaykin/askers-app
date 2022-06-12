@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     previewBody: {
         paddingVertical: 15,
         paddingHorizontal: 11,
-        backgroundColor: themes.palette.primaryBlue,
+        backgroundColor: themes.palette.primary,
     },
     previewBodyText: {
         color: themes.palette.white

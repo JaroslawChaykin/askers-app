@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { StyleSheet, TextInput, View } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import { Picker } from '@react-native-picker/picker';
-import Context from '../Context';
+import FormQuizContext from '../contexts/FormQuizContext';
 import AskButton from './UI/AskButton';
 import Typography from './UI/Typography';
 
@@ -11,7 +11,7 @@ import { gStyles } from '../assets/style/gStyles';
 
 export default function AskBox({deleteQuestion}) {
 
-    const {questions, changeQuestion} = useContext(Context);
+    const {questions, changeQuestion} = useContext(FormQuizContext);
 
     return (
       <View>
@@ -77,12 +77,18 @@ const styles = StyleSheet.create({
         borderRadius: 5
     },
     selectAsk: {
-        borderWidth: 1,
-        borderColor: themes.palette.primaryBlue,
+        backgroundColor: themes.palette.white,
         borderRadius: 5,
-        height: 40,
-        justifyContent: 'center',
+        paddingLeft: 10,
         marginTop: 10,
+        shadowColor: themes.palette.black,
+        shadowOffset: {
+            width: 0,
+            height: 0,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 2,
+        elevation: 3,
     },
     input: {
         ...gStyles.input,

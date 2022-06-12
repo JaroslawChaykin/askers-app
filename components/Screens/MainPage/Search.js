@@ -15,7 +15,7 @@ export default function Search() {
       <View style={gStyles.container}>
           <Typography style={styles.title}>Поиск</Typography>
           <View style={styles.inputContainer}>
-              <TextInput style={styles.input} placeholder={'ФИО, название опроса'}/>
+              <TextInput style={styles.input} placeholder={'ФИО, ОП или название опроса'}/>
               <AntDesign style={styles.icon} name="search1" size={19} color="#1F69FF"/>
           </View>
           <View style={styles.selectAsk}>

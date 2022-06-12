@@ -50,7 +50,7 @@ const tabNavigatorOptions = {
         shadowOpacity: 0,
         paddingHorizontal: 25,
         borderTopWidth: 1,
-        borderTopColor: themes.palette.secondaryBlue,
+        borderTopColor: themes.palette.secondary,
     },
 };
 
@@ -75,7 +75,7 @@ export default function MainNavigation() {
                       })}/>
           <Tab.Screen name={'Главная'} component={Main} options={mainTabOptions}/>
           <Tab.Screen name={'Поиск'} component={Search} options={searchTabOptions}/>
-          <Tab.Screen name={'Профиль'} component={ProfileNavigation} options={userTabOptions}/>
+          <Tab.Screen name={'ПрофильНавигация'} component={ProfileNavigation} options={{...userTabOptions, headerShown: false}}/>
       </Tab.Navigator>
     );
 }
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
         paddingVertical: 14,
         paddingHorizontal: 15,
         borderRadius: 10,
-        backgroundColor: themes.palette.primaryBlue,
+        backgroundColor: themes.palette.primary,
         flexDirection: 'row',
         alignItems: 'center'
     },
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
         marginLeft: 10
     },
     iconAround: {
-        backgroundColor: themes.palette.primaryBlue,
+        backgroundColor: themes.palette.primary,
         padding: 9,
         borderRadius: 120,
         marginRight: -25
