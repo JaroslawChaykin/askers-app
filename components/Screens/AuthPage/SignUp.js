@@ -1,20 +1,24 @@
 import React from 'react';
 import { StyleSheet, TextInput, View } from 'react-native';
 import { gStyles } from '../../../assets/style/gStyles';
-import themes from '../../../constants/_theme.constants';
 import AskButton from '../../UI/AskButton';
 
 export default function SignUp({navigation}) {
     return (
       <View style={gStyles.containerCenter}>
-          <TextInput style={styles.input} placeholder={'Email'}/>
-          <TextInput style={styles.input} placeholder={'Логин'}/>
-          <TextInput style={styles.input} placeholder={'Пароль'}/>
-          <AskButton
-            style={styles.button}
-            cb={() => navigation.navigate('MainNav')}
-            text={'Зарегистрироваться'}
-          />
+          <View style={gStyles.horizontalBorder}>
+              <TextInput style={styles.input} placeholder={'Email'}/>
+              <TextInput style={styles.input} placeholder={'Логин'}/>
+              <TextInput style={styles.input} placeholder={'Пароль'}/>
+              <View style={styles.button}>
+                  <View>
+                      <AskButton
+                        cb={() => navigation.navigate('MainNav')}
+                        text={'Зарегистрироваться'}
+                      />
+                  </View>
+              </View>
+          </View>
       </View>
     );
 }
@@ -26,14 +30,9 @@ const styles = StyleSheet.create({
         marginBottom: 5,
     },
     button: {
-        ...gStyles.button,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
         marginTop: 30,
     },
-    subButton: {
-        fontFamily: themes.fontFamily.bold,
-        fontSize: 12,
-        color: themes.palette.primary,
-        marginTop: 6,
-        marginLeft: 18
-    }
 });

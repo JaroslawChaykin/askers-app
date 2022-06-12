@@ -64,7 +64,6 @@ const styles = StyleSheet.create({
     },
     question: {
         marginTop: 35,
-        marginHorizontal: 20
     },
     questionHeader: {
         flexDirection: 'row',

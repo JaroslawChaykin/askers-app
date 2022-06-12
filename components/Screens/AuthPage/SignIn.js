@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { StyleSheet, TextInput, View,Text } from 'react-native';
+import { StyleSheet, TextInput, View } from 'react-native';
 import { gStyles } from '../../../assets/style/gStyles';
 import AskButton from '../../UI/AskButton';
-import themes from '../../../constants/_theme.constants';
 import { useAuth } from '../../../contexts/UserContext';
 
 export default function SignIn() {
@@ -19,7 +18,7 @@ export default function SignIn() {
 
     return (
       <View style={gStyles.containerCenter}>
-          <View>
+          <View style={gStyles.horizontalBorder}>
               <TextInput style={styles.input}
                          value={login}
                          onChangeText={text => setLogin(text)}
@@ -32,15 +31,16 @@ export default function SignIn() {
                          secureTextEntry
                          placeholder={'Пароль'}/>
               <AskButton
-                style={styles.subButton}
+                variant={'secondary'}
                 text={'Забыл пароль'}
               />
-              <View style={{alignItems: 'center'}}>
-                  <AskButton
-                    style={styles.button}
-                    cb={logInUser}
-                    text={isLoading ? 'Загрузка' : 'Войти'}
-                  />
+              <View style={styles.button}>
+                  <View>
+                      <AskButton
+                        cb={logInUser}
+                        text={isLoading ? 'Загрузка' : 'Войти'}
+                      />
+                  </View>
               </View>
           </View>
       </View>
@@ -48,20 +48,22 @@ export default function SignIn() {
 };
 
 const styles = StyleSheet.create({
+    container: {
+      width: 270
+    },
+    button: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
     input: {
         ...gStyles.input,
         marginTop: 5,
         marginBottom: 5,
     },
-    button: {
-        ...gStyles.button,
-        marginTop: 30,
-    },
-    subButton: {
-        fontFamily: themes.fontFamily.bold,
-        fontSize: 12,
-        color: themes.palette.primary,
-        marginTop: 6,
-        marginLeft: 18
+    buttonGroup: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
     }
 });

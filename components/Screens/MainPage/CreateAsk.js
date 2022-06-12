@@ -38,18 +38,21 @@ export default function CreateAsk() {
     return (
       <FormQuizContext.Provider value={{questions, changeQuestion}}>
           <ScrollView style={gStyles.container}>
-              <View>
-                  <Typography style={styles.title}>Название опроса</Typography>
-                  <View style={{marginHorizontal: 20}}>
-                      <TextInput style={styles.input} placeholder={'Название опроса'}/>
-                  </View>
-                  <AskBox deleteQuestion={deleteQuestion}/>
-                  <View style={{alignItems: 'flex-start'}}>
-                      <AskButton
-                        style={styles.button}
-                        cb={addQuestion}
-                        text={'Добавить вопрос'}
-                      />
+              <View style={gStyles.horizontalBorder}>
+                  <View>
+                      <Typography style={styles.title}>Название опроса</Typography>
+                      <View>
+                          <TextInput style={styles.input} placeholder={'Название опроса'}/>
+                      </View>
+                      <AskBox deleteQuestion={deleteQuestion}/>
+                      <View style={styles.button}>
+                          <View>
+                              <AskButton
+                                cb={addQuestion}
+                                text={'Добавить вопрос'}
+                              />
+                          </View>
+                      </View>
                   </View>
               </View>
           </ScrollView>
@@ -63,7 +66,6 @@ const styles = StyleSheet.create({
     title: {
         ...gStyles.title,
         marginTop: 22,
-        marginHorizontal: 20
     },
     input: {
         ...gStyles.input,
@@ -71,9 +73,9 @@ const styles = StyleSheet.create({
         marginTop: 20,
     },
     button: {
-        ...gStyles.button,
-        backgroundColor: 'transparent',
-        color: themes.palette.primary,
-        marginTop: 20,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'flex-start',
+        marginVertical: 20
     },
 });

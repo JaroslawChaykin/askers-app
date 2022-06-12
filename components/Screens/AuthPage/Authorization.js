@@ -1,33 +1,36 @@
 import React from 'react';
 import { StyleSheet, View} from 'react-native';
 import { gStyles } from '../../../assets/style/gStyles';
-import themes from '../../../constants/_theme.constants';
 import AskButton from '../../UI/AskButton';
 
 export default function Authorization({navigation}) {
     return (
       <View style={gStyles.containerCenter}>
-          <AskButton
-            style={styles.button}
-            cb={() => navigation.navigate('SignUp')}
-            text={'Зарегестрироваться'}
-          />
-          <AskButton
-            style={{...styles.button, ...styles.button2}}
-            cb={() => navigation.navigate('SignIn')}
-            text={'Войти'}
-          />
+          <View style={styles.buttonsGroup}>
+              <View style={styles.button}>
+                  <AskButton
+                    cb={() => navigation.navigate('SignUp')}
+                    text={'Зарегестрироваться'}
+                  />
+              </View>
+              <View style={styles.button}>
+                  <AskButton
+                    cb={() => navigation.navigate('SignIn')}
+                    text={'Войти'}
+                  />
+              </View>
+          </View>
       </View>
     );
 }
 
 const styles = StyleSheet.create({
-    button: {
-        ...gStyles.button,
-        margin: 14
+    buttonsGroup: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
     },
-    button2: {
-        color: themes.palette.primary,
-        backgroundColor: 'transparent',
+    button: {
+        marginVertical: 10
     }
 });
