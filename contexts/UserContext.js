@@ -45,21 +45,32 @@ function useProvideAuth () {
     }
     const signUp = (data) => {
         setIsLoading(true)
-        fetch('registration', {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(data)
+        new Promise((res, rej) => {
+            setTimeout(() => {
+                res({
+                    name: 'Vlad',
+                    age: '16'
+                })
+            }, 1000)
         }).then((res) => {
-            if(res.ok) {
-                res.json().then(user => setUser(user));
-                setIsLoading(false)
-            } else {
-                res.json().then(err => setError(err))
-            }
+            setUser(res)
             setIsLoading(false)
         })
+        // fetch('registration', {
+        //     method: 'POST',
+        //     headers: {
+        //         "Content-Type": "application/json"
+        //     },
+        //     body: JSON.stringify(data)
+        // }).then((res) => {
+        //     if(res.ok) {
+        //         res.json().then(user => setUser(user));
+        //         setIsLoading(false)
+        //     } else {
+        //         res.json().then(err => setError(err))
+        //     }
+        //     setIsLoading(false)
+        // })
     }
     const signOut = () => {
         setIsLoading(true)
