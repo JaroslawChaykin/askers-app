@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { ScrollView, StyleSheet, TextInput, View } from 'react-native';
 import AskBox from '../../AskBox';
 import { gStyles } from '../../../assets/style/gStyles';
-import themes from '../../../constants/_theme.constants';
 import FormQuizContext from '../../../contexts/FormQuizContext';
 import AskButton from '../../UI/AskButton';
 import Typography from '../../UI/Typography';

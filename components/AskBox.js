@@ -42,9 +42,10 @@ export default function AskBox({deleteQuestion}) {
                                       changeQuestion({...question, selected: itemValue});
                                   }}
                                 >
-                                    <Picker.Item label={'Один вариант ответа'} value={'1'}/>
-                                    <Picker.Item label={'Два варианта ответа'} value={'2'}/>
-                                    <Picker.Item label={'Три варианта ответа'} value={'3'}/>
+                                    <Picker.Item label={'Ответ строка'} value={'1'}/>
+                                    <Picker.Item label={'Ответ абзац'} value={'2'}/>
+                                    <Picker.Item label={'Один из списка'} value={'3'}/>
+                                    <Picker.Item label={'Несколько из списка'} value={'4'}/>
                                 </Picker>
                             </View>
                         </View>

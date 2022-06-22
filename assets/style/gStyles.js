@@ -11,6 +11,9 @@ export const gStyles = StyleSheet.create({
   horizontalBorder: {
     marginHorizontal: 20
   },
+  verticalIndent: {
+    marginVertical: 10
+  },
   containerCenter: {
     flex: 1,
     backgroundColor: themes.palette.background,
@@ -28,5 +31,9 @@ export const gStyles = StyleSheet.create({
   title: {
     fontSize: themes.fontSize.header2,
     fontFamily: themes.fontFamily.bold
-  }
+  },
+  question: {
+    borderRadius: 5,
+    marginVertical: 15
+  },
 });

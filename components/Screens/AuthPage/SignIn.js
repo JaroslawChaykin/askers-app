@@ -11,9 +11,7 @@ export default function SignIn() {
     const {signIn, isLoading} = useAuth()
 
     const logInUser = () => {
-        if(login && password) {
-            signIn()
-        }
+        signIn()
     }
 
     return (

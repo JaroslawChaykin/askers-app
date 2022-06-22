@@ -30,6 +30,8 @@ const stylesOut = StyleSheet.create({
         backgroundColor: 'transparent',
         paddingVertical: 18,
         paddingHorizontal: 28,
+        textAlign: 'center',
+        alignItems: 'center',
     },
     "primary": {
         backgroundColor: themes.palette.primary,
@@ -38,6 +40,7 @@ const stylesOut = StyleSheet.create({
         borderRadius: 10,
         overflow: 'hidden',
         textAlign: 'center',
+        alignItems: 'center',
         width: '100%',
     },
     "secondary": {
@@ -45,6 +48,8 @@ const stylesOut = StyleSheet.create({
         marginTop: 6,
         paddingVertical: 11,
         paddingHorizontal: 18,
+        textAlign: 'center',
+        alignItems: 'center',
     },
 });
 

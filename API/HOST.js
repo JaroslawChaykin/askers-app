@@ -1,0 +1,1 @@
+export const HOST = `https://87563739-c593-4d20-bdc6-9bf56b2d43e6.mock.pstmn.io`

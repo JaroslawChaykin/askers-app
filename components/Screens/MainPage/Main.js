@@ -1,56 +1,29 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { FlatList, StyleSheet, TextInput, View } from 'react-native';
 import { gStyles } from '../../../assets/style/gStyles';
 import Typography from '../../UI/Typography';
 import themes from '../../../constants/_theme.constants';
 import { AntDesign } from '@expo/vector-icons';
 import FullSurveyPreview from '../../FullSurveyPreview';
+import { useFetching } from '../../../hooks/useFetching';
+import { QuizServices } from '../../../API/QuizServices';
+import QuizzesContext from '../../../contexts/QuizzesContext';
 
 
-export default function Main() {
+export default function Main({navigation}) {
+    const {quizzes, setQuizzesFromResolve} = useContext(QuizzesContext)
 
-    const [ask, setAsk] = useState([
-        {
-            name: 'Бычин Арсений',
-            course: 3,
-            program: 'Дизайн',
-            title: 'Приложение для проведения опросов',
-            description: 'Мы делаем приложение для проведения опросов. Помоги нам, уделив всего 5 минут своего времени!',
-            key: 1
-        },
-        {
-            name: 'Чайкин Ярослав',
-            course: 2,
-            program: 'Дизайн и программирование',
-            title: 'Приложение для проведения опросов 2',
-            description: 'Мы делаем приложение для проведения опросов. Помоги нам, уделив всего 5 минут своего времени!',
-            key: 2
-        },
-        {
-            name: 'Бенедикт Камбербетч',
-            course: 1,
-            program: 'Актер потрясающий просто крутой очень сильно',
-            title: 'Приложение для проведения опросов 3',
-            description: 'Мы делаем приложение для проведения опросов. Помоги нам, уделив всего 5 минут своего времени!',
-            key: 3
-        },
-        {
-            name: 'Бенедикт Камбербетч',
-            course: 1,
-            program: 'Актер потрясающий просто крутой очень сильно',
-            title: 'Приложение для проведения опросов 3',
-            description: 'Мы делаем приложение для проведения опросов. Помоги нам, уделив всего 5 минут своего времени!',
-            key: 4
-        },
-        {
-            name: 'Бенедикт Камбербетч',
-            course: 1,
-            program: 'Актер потрясающий просто крутой очень сильно',
-            title: 'Приложение для проведения опросов 3',
-            description: 'Мы делаем приложение для проведения опросов. Помоги нам, уделив всего 5 минут своего времени!',
-            key: 5
-        },
-    ]);
+    const [getQuizzes, isLoading, error] = useFetching(async () => {
+        const quizzesResponse = await QuizServices.getQuizzes();
+        setQuizzesFromResolve(quizzesResponse);
+    });
+
+    useEffect(() => {
+        getQuizzes()
+    }, []);
+
+    if(isLoading) return <Typography>Загрузка</Typography>
+    if(error) return <Typography>{error}</Typography>
 
     return (
       <View style={gStyles.container}>
@@ -62,11 +35,11 @@ export default function Main() {
           <Typography style={styles.title}>Популярные опросы</Typography>
           <FlatList
             showsVerticalScrollIndicator={false}
-            data={ask}
-            renderItem={({item}) => (<FullSurveyPreview item={item} />)} />
+            data={quizzes}
+            renderItem={({item}) => (<FullSurveyPreview item={item} navigation={navigation}/>)}/>
       </View>
     );
-}
+};
 
 const styles = StyleSheet.create({
     inputContainer: {

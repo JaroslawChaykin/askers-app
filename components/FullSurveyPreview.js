@@ -1,24 +1,26 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, TouchableOpacity} from 'react-native';
 import Typography from './UI/Typography';
 import themes from '../constants/_theme.constants';
 import { gStyles } from '../assets/style/gStyles';
 
 
-export default function FullSurveyPreview({item}) {
+export default function FullSurveyPreview({item, navigation}) {
     return (
-      <View style={styles.previewContainer}>
-          <View style={styles.previewHeader}>
-              <Typography style={styles.title}>{item.title}</Typography>
-              <View style={styles.previewInfo}>
-                  <Typography style={{...styles.text, ...styles.gap}}>Время опроса: 15 минут</Typography>
-                  <Typography style={styles.text}>Участников: 10</Typography>
+      <TouchableOpacity onPress={() => navigation.navigate('Quiz', item.id)}>
+          <View style={styles.previewContainer}>
+              <View style={styles.previewHeader}>
+                  <Typography style={styles.title}>{item.title}</Typography>
+                  <View style={styles.previewInfo}>
+                      <Typography style={{...styles.text, ...styles.gap}}>Время опроса: {item.requested_time} минут</Typography>
+                      <Typography style={styles.text}>Участников: 10</Typography>
+                  </View>
+              </View>
+              <View style={styles.previewBody}>
+                  <Typography style={styles.previewBodyText}>{item.description}</Typography>
               </View>
           </View>
-          <View style={styles.previewBody}>
-              <Typography style={styles.previewBodyText}>{item.description}</Typography>
-          </View>
-      </View>
+      </TouchableOpacity>
     );
 }
 

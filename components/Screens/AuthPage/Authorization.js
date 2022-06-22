@@ -15,6 +15,7 @@ export default function Authorization({navigation}) {
               </View>
               <View style={styles.button}>
                   <AskButton
+                    variant={'simple-primary'}
                     cb={() => navigation.navigate('SignIn')}
                     text={'Войти'}
                   />
