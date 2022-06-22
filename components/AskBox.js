@@ -1,64 +1,81 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { StyleSheet, TextInput, View } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import { Picker } from '@react-native-picker/picker';
 import FormQuizContext from '../contexts/FormQuizContext';
 import AskButton from './UI/AskButton';
 import Typography from './UI/Typography';
-
 import themes from '../constants/_theme.constants';
 import { gStyles } from '../assets/style/gStyles';
+import LongQuestion from './TypesOfQuestions/LongQuestion';
+import MultiQuestion from './TypesOfQuestions/MultiQuestion';
+import ShortQuestion from './TypesOfQuestions/ShortQuestion';
+import SingleQuestion from './TypesOfQuestions/SingleQuestion';
 
-export default function AskBox({deleteQuestion}) {
+export default function AskBox({question, deleteQuestion, changeQuestion, index}) {
 
-    const {questions, changeQuestion} = useContext(FormQuizContext);
+    const [selectedType, setSelectedType] = useState("1");
+    const [ask, setAsk] = useState({
+        title: '',
+    });
+
+    const typesOfQuestions = {
+        "1": ShortQuestion,
+        "2": LongQuestion,
+        "3": SingleQuestion,
+        "4": MultiQuestion
+    }
+    const renderTypeQuestion = () => {
+        const Component = typesOfQuestions[selectedType]
+        return <Component/>
+    }
 
     return (
-      <View>
-          {
-              questions.map((question, index) => {
-                  return (
-                    <View style={styles.question} key={question.key}>
-                        <View style={styles.questionHeader}>
-                            <Typography style={styles.title}>{`${index + 1} вопрос`}</Typography>
-                            <AskButton
-                              style={styles.deleteBtn}
-                              cb={() => deleteQuestion(question.key)}
-                              text={<AntDesign name="minus" size={24} color="white"/>}
-                            />
-                        </View>
-
-                        <View>
-                            <TextInput style={styles.input}
-                                       onChange={(e) => {
-                                           changeQuestion({...question, name: e.target.value});
-                                       }}
-                                       value={question.name}
-                                       placeholder={'Ваш вопрос'}/>
-                            <View style={styles.selectAsk}>
-                                <Picker
-                                  selectedValue={question.selected}
-                                  onValueChange={(itemValue) => {
-                                      changeQuestion({...question, selected: itemValue});
-                                  }}
-                                >
-                                    <Picker.Item label={'Ответ строка'} value={'1'}/>
-                                    <Picker.Item label={'Ответ абзац'} value={'2'}/>
-                                    <Picker.Item label={'Один из списка'} value={'3'}/>
-                                    <Picker.Item label={'Несколько из списка'} value={'4'}/>
-                                </Picker>
-                            </View>
-                        </View>
-                    </View>
-                  );
-
-              })
-          }
+      <View style={styles.question} key={question.key}>
+          <View style={styles.questionHeader}>
+              <Typography style={styles.title}>{`${index + 1} вопрос`}</Typography>
+              <AskButton
+                style={styles.deleteBtn}
+                cb={() => deleteQuestion(question.key)}
+                text={<AntDesign name="minus" size={24} color="white"/>}
+              />
+          </View>
+          <View>
+              <TextInput style={styles.input}
+                         onChange={text => {
+                             setAsk({...ask, title: text})
+                             changeQuestion({...question, name: text});
+                         }}
+                         value={ask.title}
+                         placeholder={'Ваш вопрос'}/>
+              <View style={styles.selectAsk}>
+                  <Picker
+                    selectedValue={selectedType}
+                    onValueChange={(itemValue) => {
+                        setSelectedType(itemValue)
+                        changeQuestion({...question, selected: itemValue});
+                    }}
+                  >
+                      <Picker.Item label={'Ответ строка'} value={"1"}/>
+                      <Picker.Item label={'Ответ абзац'} value={"2"}/>
+                      <Picker.Item label={'Один из списка'} value={"3"}/>
+                      <Picker.Item label={'Несколько из списка'} value={"4"}/>
+                  </Picker>
+              </View>
+              <View style={styles.typeQuestion}>
+                  {
+                      renderTypeQuestion()
+                  }
+              </View>
+          </View>
       </View>
     );
 }
 
 const styles = StyleSheet.create({
+    typeQuestion: {
+      marginVertical: 10
+    },
     title: {
         fontSize: themes.fontSize.header3,
         fontFamily: themes.fontFamily.bold

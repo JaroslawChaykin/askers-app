@@ -32,7 +32,7 @@ const Quiz = ({route, navigation}) => {
         for (let key in quiz.questions) {
             const Component = typesOfQuestions[key]
             if(Object.keys(quiz.questions[key]).length > 0) {
-                questions.push(<Component key={Date.now() + Math.random()} question={quiz.questions[key]}/>)
+                questions.push(<Component question={quiz.questions[key]}/>)
             }
         }
         return questions
@@ -58,10 +58,10 @@ const Quiz = ({route, navigation}) => {
           <View style={gStyles.verticalIndent}>
               {
                   form().map((item, index) => (
-                    <>
+                    <View key={Date.now() + Math.random()}>
                         <Typography style={styles.count}>{index + 1} Вопрос</Typography>
                         {item}
-                    </>
+                    </View>
                   ))
               }
               <AskButton cb={sendAnswer} text={'Отправить ответ'}/>

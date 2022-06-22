@@ -8,12 +8,12 @@ import Typography from '../../UI/Typography';
 
 export default function CreateAsk() {
 
-    const [questions, setQuestions] = useState([
-        {name: '12421', selected: '1', key: 1},
-        {name: 'grere', selected: '3', key: 2},
-        {name: '124ef33321', selected: '1', key: 3},
-        {name: 'sss', selected: '2', key: 4},
-    ]);
+    const [questions, setQuestions] = useState([]);
+
+    const [quiz, setQuiz] = useState({
+        title: '',
+        description: ''
+    });
 
     const changeQuestion = (newQuestion) => {
         setQuestions(questions.map(item => newQuestion.key === item.key ? newQuestion : item));
@@ -41,9 +41,25 @@ export default function CreateAsk() {
                   <View>
                       <Typography style={styles.title}>Название опроса</Typography>
                       <View>
-                          <TextInput style={styles.input} placeholder={'Название опроса'}/>
+                          <TextInput style={styles.input}
+                                     value={quiz.title}
+                                     onChangeText={text => setQuiz({...quiz, title: text})}
+                                     placeholder={'Название опроса'}/>
+                          <TextInput style={styles.area}
+                                     multiline
+                                     numberOfLines={5}
+                                     value={quiz.title}
+                                     onChangeText={text => setQuiz({...quiz, title: text})}
+                                     placeholder={'Название опроса'}/>
                       </View>
-                      <AskBox deleteQuestion={deleteQuestion}/>
+                      {
+                          questions.map((item, index) => (
+                            <AskBox question={item}
+                                    index={index}
+                                    changeQuestion={changeQuestion}
+                                    deleteQuestion={deleteQuestion}/>
+                          ))
+                      }
                       <View style={styles.button}>
                           <View>
                               <AskButton
@@ -77,4 +93,11 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
         marginVertical: 20
     },
+    area: {
+        ...gStyles.input,
+        marginTop: 5,
+        marginBottom: 5,
+        borderRadius: 5,
+        textAlignVertical: 'top'
+    }
 });
